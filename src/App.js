@@ -14,7 +14,6 @@ class FoodViewz extends Component {
   render (){
     return (
       <Provider store={store}>
-        
         <HomeScreen />
       </Provider>
     )
