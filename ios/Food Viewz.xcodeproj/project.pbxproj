@@ -1186,6 +1186,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
+				"HEADER_SEARCH_PATHS[arch=*]" = "$(SRCROOT)/../node_modules/react-native/React/**";
 				INFOPLIST_FILE = food_viewzTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -1225,14 +1226,14 @@
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = WP9F9KTAC7;
 				INFOPLIST_FILE = food_viewz/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.developit.food-viewz";
+				PRODUCT_BUNDLE_IDENTIFIER = com.developit.foodviewz;
 				PRODUCT_NAME = "Food Viewz";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -1245,14 +1246,14 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = WP9F9KTAC7;
 				INFOPLIST_FILE = food_viewz/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.developit.food-viewz";
+				PRODUCT_BUNDLE_IDENTIFIER = com.developit.foodviewz;
 				PRODUCT_NAME = "Food Viewz";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
