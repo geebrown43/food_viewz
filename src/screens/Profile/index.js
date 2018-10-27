@@ -1,19 +1,13 @@
 import React, {Component} from "react"
 import {View, Text, StyleSheet} from "react-native"
+import ProfileScreen from "./ProfileScreen"
 
-export default class HomeScreen extends Component {
+ class Profile extends Component {
     render(){
         return(
-            <View style={styles.container}>
-                <Text>FOOD VIEWZ</Text>
-            </View>
+            <ProfileScreen />
         )
     }
 }
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: "red"
-    }
-})
+export default Profile
