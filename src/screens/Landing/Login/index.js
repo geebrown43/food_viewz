@@ -2,14 +2,14 @@ import React, {Component} from "react"
 import LoginScreen from "./LoginScreen"
 
 class Login extends Component {
-    navigateSignup = () => {
+    navigate = (screen) => {
         const {navigation} = this.props
-        navigation.navigate("Signup")
+        navigation.navigate(screen)
     }
     render(){
 
         return(
-            <LoginScreen navigateSignup={this.navigateSignup}/>
+            <LoginScreen navigate={this.navigate}/>
         )
     }
 }

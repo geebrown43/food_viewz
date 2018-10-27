@@ -7,7 +7,9 @@ export default class LandingScreen extends Component {
         const {navigateLogin, navigateSignup} = this.props
         return(
             <View style={styles.container}>
+            <Text style={[styles.title, {textAlign:"center"}]}>Food Viewz</Text>
                 <Image source={require("../../../ios/assets/Icon_hammburger.png")} style={styles.image}/>
+                
                 <View style={styles.buttonContainer}>
                     <TouchableOpacity onPress={navigateSignup}>
                         <View style={styles.button}>
@@ -58,5 +60,10 @@ const styles = StyleSheet.create({
     },
     buttonContainer: {
         alignItems: "center"
+    },
+    title:{
+        fontFamily:"HelveticaNeue-CondensedBold",
+        fontSize: 48,
+        color:"white"
     }
 })
