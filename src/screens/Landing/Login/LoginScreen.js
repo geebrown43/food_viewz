@@ -4,7 +4,7 @@ import {View, TextInput, StyleSheet, TouchableOpacity, Image, Dimensions, Text} 
 const {width, height} = Dimensions.get("screen")
 export default class LoginScreen extends Component {
     render(){
-        const {navigateSignup} = this.props
+        const {navigate} = this.props
         return(
             <View style={styles.container}>
                 <Image source={require("../../../../ios/assets/Icon_hammburger.png")} style={styles.image}/>
@@ -13,7 +13,7 @@ export default class LoginScreen extends Component {
                         <TextInput style={styles.textInput} />
                         <TextInput style={styles.textInput} />
                     </View>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={() => navigate("Home")}>
                     <View style={styles.button}>
                             <Text style={styles.buttonText}>Login</Text>
                     </View>
@@ -23,7 +23,7 @@ export default class LoginScreen extends Component {
                     <View style={styles.line} />
                     <View style={{flexDirection: "row", justifyContent:"center", marginTop: 20}}>
                     <Text style={styles.fineText}>Don't have an account ?</Text>
-                    <TouchableOpacity onPress={navigateSignup}>
+                    <TouchableOpacity onPress={() => this.navigate("Signup")}>
                         <Text style={styles.boldText}> Signup</Text>
                     </TouchableOpacity>
                     </View>
