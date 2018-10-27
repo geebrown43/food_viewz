@@ -1,8 +1,9 @@
 // @flow
 
 import React , {Component} from "react"
-import {View} from "react-native"
-import {createBottomTabNavigator, createStackNavigator, createSwitchNavigator} from "react-navigation"
+import {View, TouchableOpacity} from "react-native"
+import {createBottomTabNavigator, createSwitchNavigator} from "react-navigation"
+import Icon from "react-native-vector-icons/MaterialIcons"
 import HomeStack from "./stacks/homeStack"
 import DiscoverStack from "./stacks/discoverStack"
 import CameraStack from "./stacks/cameraStack"
@@ -10,12 +11,54 @@ import ProfileStack from "./stacks/profileStack"
 import NotificationStack from "./stacks/notificationStack"
 import LandingStack from "./stacks/landingStack"
 
+
+const CustomTabBar = (props) => {
+    const tabs = [
+        {name: "Home", icon:"home"},
+        {name: "Discover", icon:"search"},
+        {name: "Camera", icon:"photo-camera"},
+        {name: "Profile", icon:"person"},
+        {name: "Notifications", icon:"notifications"},
+    ]
+
+    return (
+        <View>
+            <View style={{flexDirection:"row", justifyContent:"space-between", padding: 10, backgroundColor:"#5F1FD6"}}>
+                {tabs.map((tab, tabIdx) => {
+                    switch (tab.routeName) {
+                        case "":
+                            return(
+                                <View />
+                            )
+                            break;
+                    
+                        default:
+                            return (
+                                <TouchableOpacity onPress={() => props.navigation.navigate(tab.name)}>
+                                    <View style={{justifyContent:"center", alignItems:"center", marginTop: 3}}>
+                                        <Icon name={tab.icon} size={30} color="white" />
+                                    </View>
+                                </TouchableOpacity>
+                            )
+                            break;
+                    }
+                })}
+            </View>
+        </View>
+    )
+}
+
+
+
+
+
 const HomeTabNav = createBottomTabNavigator({
     Home:HomeStack
 }, 
 {
     initialRouteName: "Home",
-    mode: "Card"
+    mode: "Card",
+    tabBarComponent: props => <CustomTabBar {...props} />
 })
 
 const DiscoverTabNav = createBottomTabNavigator({
@@ -23,7 +66,8 @@ const DiscoverTabNav = createBottomTabNavigator({
 }, 
 {
     initialRouteName: "Discover",
-    mode: "Card"
+    mode: "Card",
+    tabBarComponent: props => <CustomTabBar {...props} />
 })
 
 const CameraTabNav = createBottomTabNavigator({
@@ -31,7 +75,8 @@ const CameraTabNav = createBottomTabNavigator({
 }, 
 {
     initialRouteName: "Camera",
-    mode: "Card"
+    mode: "Card",
+    tabBarComponent: props => <CustomTabBar {...props} />
 })
 
 const ProfileTabNav = createBottomTabNavigator({
@@ -39,7 +84,8 @@ const ProfileTabNav = createBottomTabNavigator({
 },
 {
     initialRouteName: "Profile",
-    mode: "Card"
+    mode: "Card",
+    tabBarComponent: props => <CustomTabBar {...props} />
 })
 
 const NotificationTabNav = createBottomTabNavigator({
@@ -47,12 +93,17 @@ const NotificationTabNav = createBottomTabNavigator({
 }, 
 {
     initialRouteName: "Notification",
-    mode: "Card"
+    mode: "Card",
+    tabBarComponent: props => <CustomTabBar {...props} />
 })
 
 const NavContainer = createSwitchNavigator({
     Landing: LandingStack,
-    Home: HomeTabNav 
+    Home: HomeTabNav,
+    Camera: CameraTabNav,
+    Profile:ProfileTabNav,
+    Discover:DiscoverTabNav,
+    Notification:NotificationTabNav
 },
 {
     initialRouteName: "Landing"
