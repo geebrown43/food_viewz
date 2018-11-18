@@ -6,7 +6,8 @@ import {
   Text,
   TouchableOpacity,
   View,
-  CameraRoll
+  CameraRoll,
+  
 } from 'react-native';
 import { RNCamera } from 'react-native-camera';
 
