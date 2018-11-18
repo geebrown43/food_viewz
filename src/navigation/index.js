@@ -2,7 +2,7 @@
 
 import React , {Component} from "react"
 import {View, TouchableOpacity} from "react-native"
-import {createBottomTabNavigator, createSwitchNavigator} from "react-navigation"
+import {createBottomTabNavigator, createSwitchNavigator, createDrawerNavigator, createStackNavigator} from "react-navigation"
 import Icon from "react-native-vector-icons/MaterialIcons"
 import HomeStack from "./stacks/homeStack"
 import DiscoverStack from "./stacks/discoverStack"
@@ -10,6 +10,7 @@ import CameraStack from "./stacks/cameraStack"
 import ProfileStack from "./stacks/profileStack"
 import NotificationStack from "./stacks/notificationStack"
 import LandingStack from "./stacks/landingStack"
+import MenuStack from "./stacks/menuStack"
 
 
 const CustomTabBar = (props) => {
@@ -97,13 +98,24 @@ const NotificationTabNav = createBottomTabNavigator({
     tabBarComponent: props => <CustomTabBar {...props} />
 })
 
+const MenuNav = createDrawerNavigator({
+    Menu:MenuStack,
+    Home: HomeTabNav,
+},
+{
+    initialRouteName: "Menu",
+    
+
+})
+
 const NavContainer = createSwitchNavigator({
     Landing: LandingStack,
-    Home: HomeTabNav,
+    Menu:MenuNav,
+    
     Camera: CameraTabNav,
     Profile:ProfileTabNav,
     Discover:DiscoverTabNav,
-    Notification:NotificationTabNav
+    Notification:NotificationTabNav,
 },
 {
     initialRouteName: "Landing"

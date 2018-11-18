@@ -11,6 +11,9 @@ import {
 import { RNCamera } from 'react-native-camera';
 
 class CameraScreen extends Component {
+  state = {
+    uri: ""
+  }
   render() {
     return (
       <View style={styles.container}>
@@ -19,7 +22,7 @@ class CameraScreen extends Component {
               this.camera = ref;
             }}
             style = {styles.preview}
-            type={RNCamera.Constants.Type.back}
+            type={RNCamera.Constants.Type.front}
             flashMode={RNCamera.Constants.FlashMode.on}
             permissionDialogTitle={'Permission to use camera'}
             permissionDialogMessage={'We need your permission to use your camera phone'}
@@ -43,10 +46,16 @@ class CameraScreen extends Component {
     if (this.camera) {
       const options = { quality: 0.5, base64: true };
       const data = await this.camera.takePictureAsync(options)
-      console.log(data.uri);
-      CameraRoll.saveToCameraRoll(data.uri, "photo")
+      this.setState({uri: data.uri})
+      this.saveCameraRoll()
     }
+
   };
+
+  saveCameraRoll = () => {
+    console.log(this.state.uri)
+    CameraRoll.saveToCameraRoll(this.state.uri, "photo")
+  }
 }
 
 const styles = StyleSheet.create({
