@@ -44,7 +44,7 @@ export default class HomeScreen extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "lightgray",
+        backgroundColor: "#f5f5f5",
         alignItems:"center"
     },
     tile:{
