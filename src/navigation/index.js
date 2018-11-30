@@ -97,18 +97,17 @@ const NotificationTabNav = createBottomTabNavigator({
     tabBarComponent: props => <CustomTabBar {...props} />
 })
 
-const MoreDrawer = createDrawerNavigator({
-    Home: HomeStack,
-    Profile:ProfileStack
-})
-const NavContainer = createSwitchNavigator({
-    Landing: LandingStack,
-    More:MoreDrawer,
+const MenuStack = createDrawerNavigator({
     Home: HomeTabNav,
     Camera: CameraTabNav,
     Profile:ProfileTabNav,
     Discover:DiscoverTabNav,
     Notification:NotificationTabNav
+})
+
+const NavContainer = createSwitchNavigator({
+    Landing: LandingStack,
+    Menu: MenuStack
 },
 {
     initialRouteName: "Landing"

@@ -6,7 +6,8 @@ import {
   Text,
   TouchableOpacity,
   View,
-  CameraRoll
+  CameraRoll,
+  
 } from 'react-native';
 import { RNCamera } from 'react-native-camera';
 
@@ -43,10 +44,14 @@ class CameraScreen extends Component {
     if (this.camera) {
       const options = { quality: 0.5, base64: true };
       const data = await this.camera.takePictureAsync(options)
-      console.log(data.uri);
       CameraRoll.saveToCameraRoll(data.uri, "photo")
+      //this.saveToRoll()
     }
   };
+
+  saveToRoll = () => {
+    
+  }
 }
 
 const styles = StyleSheet.create({
